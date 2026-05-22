@@ -15,7 +15,7 @@ class Task(models.Model):
     due_date = models.DateTimeField(null=True , blank = True)
 
     created_at = models.DateTimeField(auto_now_add = True)
-    owner = models.ForeignKey(User , related_names = 'tasks' , on_delete = models.CASCADE)
+    owner = models.ForeignKey(User , related_name = 'tasks' , on_delete = models.CASCADE)
 
     def __str__(self):
         return self.title
