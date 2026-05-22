@@ -5,7 +5,6 @@ from .serializers import TaskSerializer
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.filters import SearchFilter, OrderingFilter
 
-# ADD THIS NEW FUNCTION:
 def dashboard_home(request):
     return render(request, 'tasks/index.html')
 class TaskViewSet(viewsets.ModelViewSet):
