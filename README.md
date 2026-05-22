@@ -18,12 +18,37 @@ A lightweight, full-stack task management application built with Django and Djan
 - **Language:** Python 3.x
 - **Database:** SQLite (Relational)
 
-##  Local Setup & Installation
+##  Local Setup & Initialization
 
-Follow these steps to spin up the project locally on your machine:
+Follow this exact sequence inside your terminal to install dependencies, configure your local database, and spin up the development environment.
 
-1. **Clone the repository:**
-   
+<Sequence>
+  <Step title="Install Project Requirements" subtitle="Terminal Execution">
+    Install the core framework, API toolkit, filtration utilities, and environment configurations:
+    
 ```bash
-   git clone [https://github.com/Ahmadkh123/smart-task-api.git](https://github.com/Ahmadkh123/smart-task-api.git)
-   cd smart-task-api
+    pip install django djangorestframework django-filter python-dotenv
+    ```
+  </Step>
+  <Step title="Generate Migration Blueprints" subtitle="Django ORM Layer">
+    Scan your applications for new structural model layouts or adjustments:
+    
+```bash
+    python3 manage.py makemigrations
+    ```
+  </Step>
+  <Step title="Apply Schema Migrations" subtitle="Database Layer">
+    Execute your migration files to securely map out your relational SQLite database tables:
+    
+```bash
+    python3 manage.py migrate
+    ```
+  </Step>
+  <Step title="Launch Development Server" subtitle="Local Environment">
+    Boot up your local backend engine and interface dashboard layout:
+    
+```bash
+    python3 manage.py runserver
+    ```
+  </Step>
+</Sequence>
