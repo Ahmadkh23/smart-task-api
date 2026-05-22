@@ -1,0 +1,56 @@
+{% extends "rest_framework/login_base.html" %}
+
+{% block style %}
+{{ block.super }}
+<style>
+    .smart-login-header {
+        margin-bottom: 20px;
+    }
+
+    .smart-login-header h3 {
+        margin: 0 0 12px;
+        font-size: 24px;
+        font-weight: 700;
+    }
+
+    .smart-login-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 8px;
+    }
+
+    .smart-login-actions a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 36px;
+        padding: 8px 12px;
+        border: 1px solid #d0d7de;
+        border-radius: 6px;
+        background: #ffffff;
+        color: #24292f;
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1;
+        text-decoration: none;
+    }
+
+    .smart-login-actions a:hover {
+        background: #f6f8fa;
+        color: #0969da;
+        text-decoration: none;
+    }
+</style>
+{% endblock %}
+
+{% block branding %}
+<div class="smart-login-header">
+    <h3>Smart Task Login</h3>
+    <nav class="smart-login-actions" aria-label="Smart Task login shortcuts">
+        <a href="/">Dashboard</a>
+        <a href="/api/">API Home</a>
+        <a href="/api/tasks/">Tasks API</a>
+        <a href="/admin/">Admin</a>
+    </nav>
+</div>
+{% endblock %}
