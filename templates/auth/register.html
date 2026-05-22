@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}Register - Smart Task Manager{% endblock %}
+
+{% block content %}
+<div class="form-container">
+    <h1 class="form-title">Create Account</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        
+        <div class="form-group">
+            <label for="{{ form.username.id_for_label }}">Username</label>
+            <input type="text" id="{{ form.username.id_for_label }}" name="username" required autofocus>
+            {% if form.username.errors %}
+                <div class="form-help" style="color: var(--danger);">{{ form.username.errors.0 }}</div>
+            {% endif %}
+        </div>
+
+        <div class="form-group">
+            <label for="{{ form.password1.id_for_label }}">Password</label>
+            <input type="password" id="{{ form.password1.id_for_label }}" name="password1" required>
+            {% if form.password1.errors %}
+                <div class="form-help" style="color: var(--danger);">{{ form.password1.errors.0 }}</div>
+            {% else %}
+                <div class="form-help">At least 8 characters, not all numbers</div>
+            {% endif %}
+        </div>
+
+        <div class="form-group">
+            <label for="{{ form.password2.id_for_label }}">Confirm Password</label>
+            <input type="password" id="{{ form.password2.id_for_label }}" name="password2" required>
+            {% if form.password2.errors %}
+                <div class="form-help" style="color: var(--danger);">{{ form.password2.errors.0 }}</div>
+            {% else %}
+                <div class="form-help">Must match the password above</div>
+            {% endif %}
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">Create Account</button>
+    </form>
+
+    <div class="auth-links">
+        <p>Already have an account? <a href="{% url 'login' %}" class="link-text">Sign in</a></p>
+    </div>
+</div>
+{% endblock %}

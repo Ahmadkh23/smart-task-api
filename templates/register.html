@@ -1,0 +1,18 @@
+{% extends "rest_framework/login_base.html" %}
+
+{% block branding %}
+<div class="smart-login-header">
+    <h3>Register for Smart Task</h3>
+</div>
+{% endblock %}
+
+{% block content %}
+<form method="post" class="smart-login-actions" style="flex-direction:column;gap:8px;max-width:320px;">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Register</button>
+</form>
+<p>
+    <a href="/login/">Already have an account? Log in</a>
+</p>
+{% endblock %}

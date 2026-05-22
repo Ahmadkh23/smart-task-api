@@ -1,12 +1,19 @@
-from django.urls import path , include
+from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from .views import TaskViewSet, dashboard_home
+from . import views
 
 router = DefaultRouter()
-router.register(r'tasks' , TaskViewSet , basename = 'task')
+router.register(r'tasks', views.TaskViewSet, basename='task-api')
 
 urlpatterns = [
-    path('', dashboard_home, name='dashboard-home'),
-    path('api/' , include(router.urls)),
-    path('' , include(router.urls)),
+    # Authentication URLs
+    path('register/', views.register, name='register'),
+    path('login/', views.login_view, name='login'),
+    path('logout/', views.logout_view, name='logout'),
+    
+    # Dashboard
+    path('', views.dashboard, name='dashboard'),
+    
+    # API URLs
+    path('api/', include(router.urls)),
 ]
